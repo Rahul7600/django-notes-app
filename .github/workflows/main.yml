@@ -18,6 +18,9 @@ jobs:
       - name: List directory before checkout
         run: ls -al ${{ github.workspace }}
 
+      - name: Configure git safe directory
+        run: git config --global --add safe.directory ${{ github.workspace }}/my-custom-directory
+
       - name: Checkout Repo
         uses: actions/checkout@v3
         with:
@@ -25,4 +28,5 @@ jobs:
 
       - name: List directory after checkout
         run: ls -al ${{ github.workspace }}/my-custom-directory
+
 
